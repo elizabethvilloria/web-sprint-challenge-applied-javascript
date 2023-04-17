@@ -1,4 +1,21 @@
 const Header = (title, date, temp) => {
+  const header = document.createElement('div');
+  const the_date = document.createElement('span');
+  const the_title = document.createElement('h1');
+  const the_temp = document.createElement('span');
+
+  header.classList.add('header');
+  the_date.classList.add('date');
+  the_temp.classList.add('temp');
+
+  the_date.textContent = `${date}`;
+  the_title.textContent = `${title}`;
+  the_temp.textContent = `${temp}`;
+
+  header.appendChild(the_date);
+  header.appendChild(the_title);
+  header.appendChild(the_temp);
+
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -11,6 +28,10 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+
+
+  return header;
+
 }
 
 const headerAppender = (selector) => {
@@ -20,6 +41,7 @@ const headerAppender = (selector) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+  document.querySelector(selector).appendChild(Header("Bloomtech Times", "May 5, 2005", "35"))
 
   // HINT: querySelector can take in a string (ie querySelector("#wrapper")) 
   // but it can also take in a variable (ie querySelector(selector))
